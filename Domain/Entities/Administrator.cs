@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using MinimalApi.Domain.Enums;
 
 namespace MinimalApi.Domain.Entities;
 
@@ -12,5 +13,5 @@ public class Administrator : Base
     public string Password { get; set; } = default!;
     
     [StringLength(10)]
-    public string Profile { get; set; } = default!;
+    public EProfile Profile { get; set; } = default!;
 }

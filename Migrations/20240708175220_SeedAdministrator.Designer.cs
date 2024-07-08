@@ -11,8 +11,8 @@ using MinimalApi.Infrastructure.Database;
 namespace MinimalApi.Migrations
 {
     [DbContext(typeof(MinmalDbContext))]
-    [Migration("20240708170959_AdministratorMigration")]
-    partial class AdministratorMigration
+    [Migration("20240708175220_SeedAdministrator")]
+    partial class SeedAdministrator
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -42,14 +42,22 @@ namespace MinimalApi.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50)");
 
-                    b.Property<string>("Profile")
-                        .IsRequired()
+                    b.Property<int>("Profile")
                         .HasMaxLength(10)
-                        .HasColumnType("varchar(10)");
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.ToTable("Administrators");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Email = "admin@admin.com",
+                            Password = "123456",
+                            Profile = 0
+                        });
                 });
 #pragma warning restore 612, 618
         }

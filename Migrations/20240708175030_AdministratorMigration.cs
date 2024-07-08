@@ -24,8 +24,7 @@ namespace MinimalApi.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Password = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Profile = table.Column<string>(type: "varchar(10)", maxLength: 10, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4")
+                    Profile = table.Column<int>(type: "int", maxLength: 10, nullable: false)
                 },
                 constraints: table =>
                 {

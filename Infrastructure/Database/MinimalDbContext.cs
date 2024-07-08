@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using MinimalApi.Domain.Entities;
+using MinimalApi.Domain.Enums;
 
 namespace MinimalApi.Infrastructure.Database;
 
@@ -13,6 +14,18 @@ public class MinmalDbContext : DbContext
     }
 
     public DbSet<Administrator> Administrators { get; set; } = default!;
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Administrator>().HasData(
+            new Administrator {
+                Id = 1,
+                Email = "admin@admin.com",
+                Password = "123456",
+                Profile = EProfile.Admin
+            }
+        );
+    }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
