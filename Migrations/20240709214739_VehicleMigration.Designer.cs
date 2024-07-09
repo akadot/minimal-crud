@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MinimalApi.Infrastructure.Database;
 
@@ -10,9 +11,11 @@ using MinimalApi.Infrastructure.Database;
 namespace MinimalApi.Migrations
 {
     [DbContext(typeof(MinmalDbContext))]
-    partial class MinmalDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240709214739_VehicleMigration")]
+    partial class VehicleMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
