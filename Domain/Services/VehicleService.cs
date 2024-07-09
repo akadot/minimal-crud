@@ -35,7 +35,7 @@ public class VehicleService : IVehicleService
         return _context.Vehicles.Where(vh => vh.Id == id).FirstOrDefault();
     }
 
-    List<Vehicle> GetAll(int page = 1, string? name = null, string? model = null)
+    public List<Vehicle> GetAll(int page = 1, string? name = null, string? model = null)
     {
         List<Vehicle> allVehicles = [.. _context.Vehicles];
 
