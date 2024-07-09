@@ -9,9 +9,11 @@ public class Administrator : Base
     [StringLength(255)]
     public string Email { get; set; } = default!;
     
+    [Required]
     [StringLength(50)]
     public string Password { get; set; } = default!;
     
+    [Required]
     [StringLength(10)]
     public EProfile Profile { get; set; } = default!;
 }
